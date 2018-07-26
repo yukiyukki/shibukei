@@ -27,7 +27,7 @@ $app->get('/atom', function (Request $request, Response $response, array $args) 
         $feedItem->setLink(sprintf(ARTICLE_BASE_URL, $item->id));
         $feedItem->setDate(date_create_from_format('Y-m-d H:i:s', $item->start));
         $feedItem->setAuthor(ARTICLE_AUTHOR);
-        $feedItem->setContent('<p>'.ARTICLE_IMG_PATH.$item->image.'</p>');
+        $feedItem->setContent('<p><img src="'.ARTICLE_IMG_PATH.$item->image.'" alt="'.$item->title.'"></p>');
         $feed->addItem($feedItem);
     }
 
